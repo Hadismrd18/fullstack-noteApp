@@ -81,7 +81,7 @@ const loginUser = async (req, res) => {
     const userId = currentUser._id;
     const token = jwt.sign({ userId }, SECRET_KEY, { expiresIn: "30m" });
 
-    res.status(200).send(token);
+    res.status(200).json({token});
   } catch (error) {
     res.status(500).json({ message: error });
   }
